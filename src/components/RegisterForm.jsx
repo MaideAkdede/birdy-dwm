@@ -1,12 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useState} from 'react';
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function RegisterForm() {
+
+    const [currentUser, setCurrentUser] = useContext(AuthContext);
+    const [mail, setMail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const [user, setUser] = useState({
+        firstname: null,
+        lastname: null,
+        token: null
+    })
+
     return(
         <Fragment>
             <h1>S'enregistrer</h1>
             <form>
-
                 <label htmlFor='firstname'>Prénom</label>
                 <input type='text' id='firstname' />
 

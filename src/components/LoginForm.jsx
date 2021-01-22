@@ -8,6 +8,7 @@ export default function LoginForm() {
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [currentUser, setCurrentUser] = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const handleSubmit = e => {
         //Éviter rechargement de la page
@@ -21,7 +22,19 @@ export default function LoginForm() {
             .catch((error) => {
                 let errorCode = error.code;
                 let errorMessage = error.message;
-                console.log(errorCode, errorMessage)
+                console.log(errorCode, errorMessage);
+                 switch (errorCode) {
+
+                    case 'auth/user-not-found':
+                        setError("Aucun utilisateur n'est enregistré avec cet adresse mail")
+                        break
+                    case 'auth/wrong-password':
+                        setError('Vérifiez votre mot de passe')
+                        break
+
+                    default:
+                    break
+                }
             });
     }
 
@@ -40,6 +53,7 @@ export default function LoginForm() {
                                name="password"
                                id="password"
                                onChange={e => setPassword(e.target.value)}/>
+           {error ? <p className='error'>{error}</p> : null}
             <input type="submit" value="Se connecter"/>
         </form>
         <p>Vous n'êtes pas encore inscrit ? <Link to='./register'>S'inscrire</Link></p>

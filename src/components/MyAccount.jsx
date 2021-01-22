@@ -6,7 +6,7 @@ export default function MyAccount() {
         <Fragment>
             <h2>Mon compte</h2>
             <p>Bonjour</p>
-            <button onClick={ () => firebase.auth().signOut()}>Déconnexion</button>
+            <button onClick={ () => firebase.auth().signOut()}>Se déconnecter</button>
         </Fragment>
     )
 }
