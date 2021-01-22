@@ -1,4 +1,4 @@
-import React, { Fragment} from 'react';
+import React, { Fragment } from 'react';
 import firebase from "../utils/firebaseConfig";
 
 export default function MyAccount() {
