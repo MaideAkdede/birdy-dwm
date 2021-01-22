@@ -30,17 +30,17 @@ export default function LoginForm() {
     <Fragment>
         <h1>Se connecter</h1>
         <form onSubmit={handleSubmit} >
-            <label htmlFor="email">Email</label>
-            <input type="email"
-                   name="email"
-                   id="email"
-                   onChange={e => setMail(e.target.value)}/>
-            <label htmlFor="password">Mot de passe</label>
-            <input type="password"
-                   name="password"
-                   id="password"
-                   onChange={e => setPassword(e.target.value)}/>
-            <input type="submit" />
+            <label htmlFor="email">Adresse Mail</label>
+                        <input type="email"
+                               name="email"
+                               id="email"
+                               onChange={e => setMail(e.target.value)}/>
+                        <label htmlFor="password">Mot de passe</label>
+                        <input type="password"
+                               name="password"
+                               id="password"
+                               onChange={e => setPassword(e.target.value)}/>
+            <input type="submit" value="Se connecter"/>
         </form>
         <p>Vous n'êtes pas encore inscrit ? <Link to='./register'>S'inscrire</Link></p>
     </Fragment>

@@ -15,12 +15,12 @@ export default function App() {
             { currentUser ?
                 <Redirect to={{ pathname: "/" }} />
                 :
-                <Redirect to={{ pathname: "/login" }} />
+                <Redirect to={{ pathname: "/Login" }} />
             }
             <Switch>
                 <Route path="/" component={Home} exact/>
-                <Route path="/login" component={LoginForm} exact/>
-                <Route path="/register" component={RegisterForm} exact/>
+                <Route path="/Login" component={LoginForm} exact/>
+                <Route path="/Register" component={RegisterForm} exact/>
             </Switch>
         </BrowserRouter>
     )

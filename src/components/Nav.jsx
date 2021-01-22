@@ -14,22 +14,22 @@ export default function Nav () {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/account">
+                        <Link to="/Account">
                             Mon Compte
                         </Link>
                     </li>
                     <li>
-                        <Link to="/test">
+                        <Link to="/Test">
                             Test
                         </Link>
                     </li>
                 </ul>
 
                 <Switch>
-                    <Route path="/account">
+                    <Route path="/Account">
                        <MyAccount />
                     </Route>
-                    <Route path="/test">
+                    <Route path="/Test">
                         <p>Ceci est une page test</p>
                     </Route>
                 </Switch>
