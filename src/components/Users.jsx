@@ -22,8 +22,8 @@ export default function Users() {
             <ul className="users">
                 {allUsers.map((singleUser, id) => (
                     <li>
-                        <p><span>{singleUser.firstname}</span> <span>{singleUser.lastname}</span></p>
-                        <Mailto email>{singleUser.mail}</Mailto>
+                        <p className="users_name"><span>{singleUser.firstname}</span> <span>{singleUser.lastname}</span></p>
+                        <p className="users_mail">{singleUser.mail}</p>
                     </li>
                 ))
                 }
