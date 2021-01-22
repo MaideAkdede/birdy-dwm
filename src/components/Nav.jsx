@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import MyAccount from "./MyAccount";
 import Encyclopedia from "./Encyclopedia";
+import Users from "./Users";
 
 export default function Nav () {
     return (
@@ -24,6 +25,11 @@ export default function Nav () {
                             Encyclopédie
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/Users">
+                            Utilisateurs
+                        </Link>
+                    </li>
                 </ul>
 
                 <Switch>
@@ -32,6 +38,9 @@ export default function Nav () {
                     </Route>
                     <Route path="/Encyclopedia">
                         <Encyclopedia />
+                    </Route>
+                    <Route path="/Users">
+                        <Users />
                     </Route>
                 </Switch>
             </BrowserRouter>
