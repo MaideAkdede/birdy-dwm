@@ -10,28 +10,25 @@ export default function LoginForm() {
     const [currentUser, setCurrentUser] = useContext(AuthContext);
     const [error, setError] = useState('');
 
-    const handleSubmit = e => {
+    const handleConnect = e => {
         //Éviter rechargement de la page
         e.preventDefault();
-
-        firebase.auth().signInWithEmailAndPassword(mail, password)
+        //SIGN IN
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(mail, password)
             .then((userFb) => {
-                //Sign In
                 setCurrentUser(userFb.user);
             })
             .catch((error) => {
                 let errorCode = error.code;
-                let errorMessage = error.message;
-                console.log(errorCode, errorMessage);
                  switch (errorCode) {
-
                     case 'auth/user-not-found':
-                        setError("Aucun utilisateur n'est enregistré avec cet adresse mail")
+                        setError("Aucun utilisateur n'est enregistré avec cette adresse mail")
                         break
                     case 'auth/wrong-password':
                         setError('Vérifiez votre mot de passe')
                         break
-
                     default:
                     break
                 }
@@ -42,17 +39,17 @@ export default function LoginForm() {
     return(
     <Fragment>
         <h1>Se connecter</h1>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleConnect} >
             <label htmlFor="email">Adresse Mail</label>
-                        <input type="email"
-                               name="email"
-                               id="email"
-                               onChange={e => setMail(e.target.value)}/>
-                        <label htmlFor="password">Mot de passe</label>
-                        <input type="password"
-                               name="password"
-                               id="password"
-                               onChange={e => setPassword(e.target.value)}/>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   onChange={e => setMail(e.target.value)}/>
+            <label htmlFor="password">Mot de passe</label>
+            <input type="password"
+                   name="password"
+                   id="password"
+                   onChange={e => setPassword(e.target.value)}/>
            {error ? <p className='error'>{error}</p> : null}
             <input type="submit" value="Se connecter"/>
         </form>
