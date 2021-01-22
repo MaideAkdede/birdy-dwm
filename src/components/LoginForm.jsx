@@ -28,6 +28,7 @@ export default function LoginForm() {
     //A F F I C H A G E
     return(
     <Fragment>
+        <h1>Se connecter</h1>
         <form onSubmit={handleSubmit} >
             <label htmlFor="email">Email</label>
             <input type="email"

@@ -1,8 +1,7 @@
-// LIBRARY AND DEPENDENCIES
 import React, { useContext } from 'react';
 import { AuthContext } from "./contexts/AuthContext";
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
-// COMPONENTS
+
 import Home from "./components/Home";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
@@ -18,17 +17,10 @@ export default function App() {
                 :
                 <Redirect to={{ pathname: "/login" }} />
             }
-
             <Switch>
-                <Route exact path="/" >
-                    <Home />
-                </Route>
-                <Route path="/login" >
-                    <LoginForm />
-                </Route>
-                <Route path="/register" >
-                    <RegisterForm />
-                </Route>
+                <Route path="/" component={Home} exact/>
+                <Route path="/login" component={LoginForm} exact/>
+                <Route path="/register" component={RegisterForm} exact/>
             </Switch>
         </BrowserRouter>
     )
