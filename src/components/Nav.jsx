@@ -3,13 +3,14 @@ import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import MyAccount from "./MyAccount";
 import Encyclopedia from "./Encyclopedia";
 import Users from "./Users";
+import SingleBird from "./SingleBird";
 
 export default function Nav () {
     return (
         <React.Fragment>
             <BrowserRouter>
                 <h2>Menu de navigation</h2>
-                <ul>
+                <ul className="navUl">
                     <li>
                         <Link to="/">
                             Accueil
