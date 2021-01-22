@@ -9,11 +9,10 @@ export default function RegisterForm() {
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
 
-    const [userInput, setUserInput] = useState({
-        firstname: '',
-        lastname: '',
-        token: ''
-    })
+    const [inputFirstname, setInputFirstname] = useState('');
+    const [inputLastname, setInputLastname] = useState('');
+    const [inputToken, setInputToken] = useState('');
+
     const handleRegister = (e) => {
         // Arrêtez rechargement de la page
         e.preventDefault();
@@ -32,10 +31,18 @@ export default function RegisterForm() {
         firebase
             .firestore()
             .collection('users').doc().set({
-                firstname: userInput.firstname,
-                lastname: userInput.lastname,
-                token: userInput.token
+                firstname: inputFirstname,
+                lastname: inputLastname,
+                token: inputToken,
+                mail: mail
+        })
+        .catch((error) => {
+            let errorCode = error.code;
+            let errorMsg = error.message;
+            console.log(errorCode , errorMsg);
         });
+        ;
+
     }
     return(
         <Fragment>
@@ -43,14 +50,15 @@ export default function RegisterForm() {
             <form onSubmit={handleRegister}>
                 <label htmlFor='firstname'>Prénom</label>
                 <input type='text' id='firstname'
-                       onChange={(e) => setUserInput( { ...userInput, firstname: e.target.value })}/>
+                       onChange={(e) => setInputFirstname(e.target.value)}/>
 
                 <label htmlFor='lastname'>Nom</label>
                 <input type='text' id='lastname'
-                       onChange={(e) => setUserInput( { ...userInput, lastname: e.target.value })}/>
+                       onChange={(e) => setInputLastname(e.target.value)}/>
 
                 <label htmlFor='token'> ID de l'institut des Sciences Naturelles</label>
-                <input type='text' id='token' onChange={(e) => setUserInput( { ...userInput, token: e.target.value })}/>
+                <input type='text' id='token'
+                       onChange={(e) => setInputToken(e.target.value)}/>
 
                 <label htmlFor='email'>Adresse mail</label>
                 <input type='text' id='email'

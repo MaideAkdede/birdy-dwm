@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import MyAccount from "./MyAccount";
+import Encyclopedia from "./Encyclopedia";
 
 export default function Nav () {
     return (
@@ -19,8 +20,8 @@ export default function Nav () {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/Test">
-                            Test
+                        <Link to="/Encyclopedia">
+                            Encyclopédie
                         </Link>
                     </li>
                 </ul>
@@ -29,8 +30,8 @@ export default function Nav () {
                     <Route path="/Account">
                        <MyAccount />
                     </Route>
-                    <Route path="/Test">
-                        <p>Ceci est une page test</p>
+                    <Route path="/Encyclopedia">
+                        <Encyclopedia />
                     </Route>
                 </Switch>
             </BrowserRouter>
